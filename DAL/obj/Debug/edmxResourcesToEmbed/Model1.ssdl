@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClinicaNetDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Afiliado">
+    <Key>
+      <PropertyRef Name="Usuario_Id" />
+    </Key>
+    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Estado_Civil" Type="varchar" MaxLength="50" />
+    <Property Name="Plan_Codigo" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Cantidad_Hijos" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="Numero_Familia" Type="int" Nullable="false" />
+    <Property Name="Numero_Miembro" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+    <Property Name="Fecha_Baja" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="Id_Agenda" />
+    </Key>
+    <Property Name="Id_Agenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+    <Property Name="Fecha_Fin" Type="date" Nullable="false" />
+    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Especialidad_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Atencion">
+    <Key>
+      <PropertyRef Name="Id_Atencion" />
+    </Key>
+    <Property Name="Id_Atencion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Consulta_Id" Type="int" Nullable="false" />
+    <Property Name="Sintomas" Type="varchar" MaxLength="255" />
+    <Property Name="Diagnostico" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="BonoConsulta">
+    <Key>
+      <PropertyRef Name="Numero_Bono_Consulta" />
+    </Key>
+    <Property Name="Numero_Bono_Consulta" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero_Consulta" Type="int" />
+    <Property Name="Fecha_Impresion" Type="datetime" />
+    <Property Name="Compra_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BonoFarmacia">
+    <Key>
+      <PropertyRef Name="Numero_Bono_Farmacia" />
+    </Key>
+    <Property Name="Numero_Bono_Farmacia" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Compra_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Fecha_Vencimiento" Type="datetime" />
+    <Property Name="Fecha_Impresion" Type="datetime" />
+    <Property Name="Fecha_Prescripcion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CambioPlan">
+    <Key>
+      <PropertyRef Name="Id_CambioPlan" />
+    </Key>
+    <Property Name="Id_CambioPlan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario_Id" Type="int" />
+    <Property Name="Fecha_Cambio" Type="datetime" Nullable="false" />
+    <Property Name="Plan_Viejo_Codigo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Plan_Nuevo_Codigo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Motivo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Cancelacion">
+    <Key>
+      <PropertyRef Name="Id_Cancelacion" />
+    </Key>
+    <Property Name="Id_Cancelacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Turno_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Tipo_Id" Type="int" />
+    <Property Name="Motivo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Compra">
+    <Key>
+      <PropertyRef Name="Id_Compra" />
+    </Key>
+    <Property Name="Id_Compra" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Total" Type="money" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Plan_Codigo" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Usuario_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Consulta">
+    <Key>
+      <PropertyRef Name="Id_Consulta" />
+    </Key>
+    <Property Name="Id_Consulta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Turno_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Fecha_Llegada" Type="datetime" />
+    <Property Name="Bono_Consulta_Numero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dia">
+    <Key>
+      <PropertyRef Name="Id_Dia" />
+    </Key>
+    <Property Name="Id_Dia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Horario_Inicio" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Horario_Fin" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Agenda_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Especialidad">
+    <Key>
+      <PropertyRef Name="Id_Especialidad" />
+    </Key>
+    <Property Name="Id_Especialidad" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Tipo_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EspecialidadXProfesional">
+    <Key>
+      <PropertyRef Name="Usuario_Id" />
+      <PropertyRef Name="Especialidad_Id" />
+    </Key>
+    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Especialidad_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+    <Property Name="Motivo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Funcionalidad">
+    <Key>
+      <PropertyRef Name="Id_Funcionalidad" />
+    </Key>
+    <Property Name="Id_Funcionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Controlador" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FuncionalidadXRol">
+    <Key>
+      <PropertyRef Name="Funcionalidad_Id" />
+      <PropertyRef Name="Rol_Id" />
+    </Key>
+    <Property Name="Funcionalidad_Id" Type="int" Nullable="false" />
+    <Property Name="Rol_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginUsuario">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="Intento" Type="int" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicamentoXReceta">
+    <Key>
+      <PropertyRef Name="Receta_Id" />
+      <PropertyRef Name="Medicamento" />
+    </Key>
+    <Property Name="Receta_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Medicamento" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cantidad" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanAfiliado">
+    <Key>
+      <PropertyRef Name="Codigo_Plan" />
+    </Key>
+    <Property Name="Codigo_Plan" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Precio_Bono_Consulta" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Precio_Bono_Farmacia" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Profesional">
+    <Key>
+      <PropertyRef Name="Usuario_Id" />
+    </Key>
+    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Matricula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receta">
+    <Key>
+      <PropertyRef Name="Id_Receta" />
+    </Key>
+    <Property Name="Atencion_Id" Type="int" Nullable="false" />
+    <Property Name="Bono_Farmacia_Numero" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Id_Receta" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolXUsuario">
+    <Key>
+      <PropertyRef Name="Rol_Id" />
+      <PropertyRef Name="Usuario_Id" />
+    </Key>
+    <Property Name="Rol_Id" Type="int" Nullable="false" />
+    <Property Name="Usuario_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoCancelacion">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Cancelacion" />
+    </Key>
+    <Property Name="Id_Tipo_Cancelacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoEspecialidad">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Especialidad" />
+    </Key>
+    <Property Name="Id_Tipo_Especialidad" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="Id_Turno" />
+    </Key>
+    <Property Name="Id_Turno" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pedido_Fecha_Hora" Type="datetime" />
+    <Property Name="Afiliado_Usuario_Id" Type="int" />
+    <Property Name="Profesional_Usuario_Id" Type="int" Nullable="false" />
+    <Property Name="Especialidad_Id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Cancelado" Type="bit" />
+    <Property Name="Turno_Fecha_Hora" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Tipo_Documento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Numero_Documento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="Telefono" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Mail" Type="varchar" MaxLength="255" />
+    <Property Name="Fecha_Nac" Type="datetime" />
+    <Property Name="Sexo" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_Afiliado_Compra">
+    <End Role="Afiliado" Type="Self.Afiliado" Multiplicity="0..1" />
+    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Afiliado">
+        <PropertyRef Name="Usuario_Id" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Afiliado_Plan">
+    <End Role="PlanAfiliado" Type="Self.PlanAfiliado" Multiplicity="0..1" />
+    <End Role="Afiliado" Type="Self.Afiliado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanAfiliado">
+        <PropertyRef Name="Codigo_Plan" />
+      </Principal>
+      <Dependent Role="Afiliado">
+        <PropertyRef Name="Plan_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Afiliado_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Afiliado" Type="Self.Afiliado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Afiliado">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agenda_EspecialidadXProfesional">
+    <End Role="EspecialidadXProfesional" Type="Self.EspecialidadXProfesional" Multiplicity="1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EspecialidadXProfesional">
+        <PropertyRef Name="Usuario_Id" />
+        <PropertyRef Name="Especialidad_Id" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="Usuario_Id" />
+        <PropertyRef Name="Especialidad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Atencion_Consulta">
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="1" />
+    <End Role="Atencion" Type="Self.Atencion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consulta">
+        <PropertyRef Name="Id_Consulta" />
+      </Principal>
+      <Dependent Role="Atencion">
+        <PropertyRef Name="Consulta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bono Consulta_Compra">
+    <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+    <End Role="BonoConsulta" Type="Self.BonoConsulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compra">
+        <PropertyRef Name="Id_Compra" />
+      </Principal>
+      <Dependent Role="BonoConsulta">
+        <PropertyRef Name="Compra_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bono Farmacia_Compra">
+    <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+    <End Role="BonoFarmacia" Type="Self.BonoFarmacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compra">
+        <PropertyRef Name="Id_Compra" />
+      </Principal>
+      <Dependent Role="BonoFarmacia">
+        <PropertyRef Name="Compra_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CambioPlan_Afiliado">
+    <End Role="Afiliado" Type="Self.Afiliado" Multiplicity="0..1" />
+    <End Role="CambioPlan" Type="Self.CambioPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Afiliado">
+        <PropertyRef Name="Usuario_Id" />
+      </Principal>
+      <Dependent Role="CambioPlan">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CambioPlan_Plan">
+    <End Role="PlanAfiliado" Type="Self.PlanAfiliado" Multiplicity="1" />
+    <End Role="CambioPlan" Type="Self.CambioPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanAfiliado">
+        <PropertyRef Name="Codigo_Plan" />
+      </Principal>
+      <Dependent Role="CambioPlan">
+        <PropertyRef Name="Plan_Viejo_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CambioPlan_Plan1">
+    <End Role="PlanAfiliado" Type="Self.PlanAfiliado" Multiplicity="1" />
+    <End Role="CambioPlan" Type="Self.CambioPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanAfiliado">
+        <PropertyRef Name="Codigo_Plan" />
+      </Principal>
+      <Dependent Role="CambioPlan">
+        <PropertyRef Name="Plan_Nuevo_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cancelacion_TipoCancelacion">
+    <End Role="TipoCancelacion" Type="Self.TipoCancelacion" Multiplicity="0..1" />
+    <End Role="Cancelacion" Type="Self.Cancelacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCancelacion">
+        <PropertyRef Name="Id_Tipo_Cancelacion" />
+      </Principal>
+      <Dependent Role="Cancelacion">
+        <PropertyRef Name="Tipo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cancelacion_Turno">
+    <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+    <End Role="Cancelacion" Type="Self.Cancelacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="Id_Turno" />
+      </Principal>
+      <Dependent Role="Cancelacion">
+        <PropertyRef Name="Turno_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compra_Plan">
+    <End Role="PlanAfiliado" Type="Self.PlanAfiliado" Multiplicity="0..1" />
+    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanAfiliado">
+        <PropertyRef Name="Codigo_Plan" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="Plan_Codigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consulta_Bono Consulta">
+    <End Role="BonoConsulta" Type="Self.BonoConsulta" Multiplicity="1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BonoConsulta">
+        <PropertyRef Name="Numero_Bono_Consulta" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="Bono_Consulta_Numero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consulta_Turno">
+    <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="Id_Turno" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="Turno_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dia_Agenda">
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="1" />
+    <End Role="Dia" Type="Self.Dia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agenda">
+        <PropertyRef Name="Id_Agenda" />
+      </Principal>
+      <Dependent Role="Dia">
+        <PropertyRef Name="Agenda_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Especialidad_TipoEspecialidad">
+    <End Role="TipoEspecialidad" Type="Self.TipoEspecialidad" Multiplicity="1" />
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEspecialidad">
+        <PropertyRef Name="Id_Tipo_Especialidad" />
+      </Principal>
+      <Dependent Role="Especialidad">
+        <PropertyRef Name="Tipo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EspecialidadXProfesional_Especialidad">
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="1" />
+    <End Role="EspecialidadXProfesional" Type="Self.EspecialidadXProfesional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="Id_Especialidad" />
+      </Principal>
+      <Dependent Role="EspecialidadXProfesional">
+        <PropertyRef Name="Especialidad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EspecialidadXProfesional_Profesional">
+    <End Role="Profesional" Type="Self.Profesional" Multiplicity="1" />
+    <End Role="EspecialidadXProfesional" Type="Self.EspecialidadXProfesional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesional">
+        <PropertyRef Name="Usuario_Id" />
+      </Principal>
+      <Dependent Role="EspecialidadXProfesional">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionalidadXRol_Funcionalidad">
+    <End Role="Funcionalidad" Type="Self.Funcionalidad" Multiplicity="1" />
+    <End Role="FuncionalidadXRol" Type="Self.FuncionalidadXRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionalidad">
+        <PropertyRef Name="Id_Funcionalidad" />
+      </Principal>
+      <Dependent Role="FuncionalidadXRol">
+        <PropertyRef Name="Funcionalidad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionalidadXRol_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="FuncionalidadXRol" Type="Self.FuncionalidadXRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="FuncionalidadXRol">
+        <PropertyRef Name="Rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedicamentoXReceta_Receta">
+    <End Role="Receta" Type="Self.Receta" Multiplicity="1" />
+    <End Role="MedicamentoXReceta" Type="Self.MedicamentoXReceta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receta">
+        <PropertyRef Name="Id_Receta" />
+      </Principal>
+      <Dependent Role="MedicamentoXReceta">
+        <PropertyRef Name="Receta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profesional_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Profesional" Type="Self.Profesional" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Profesional">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receta_Atencion">
+    <End Role="Atencion" Type="Self.Atencion" Multiplicity="1" />
+    <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atencion">
+        <PropertyRef Name="Id_Atencion" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="Atencion_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receta_Bono Farmacia">
+    <End Role="BonoFarmacia" Type="Self.BonoFarmacia" Multiplicity="0..1" />
+    <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BonoFarmacia">
+        <PropertyRef Name="Numero_Bono_Farmacia" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="Bono_Farmacia_Numero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolXUsuario_Login">
+    <End Role="LoginUsuario" Type="Self.LoginUsuario" Multiplicity="1" />
+    <End Role="RolXUsuario" Type="Self.RolXUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoginUsuario">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="RolXUsuario">
+        <PropertyRef Name="Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolXUsuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="RolXUsuario" Type="Self.RolXUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="RolXUsuario">
+        <PropertyRef Name="Rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_Afiliado">
+    <End Role="Afiliado" Type="Self.Afiliado" Multiplicity="0..1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Afiliado">
+        <PropertyRef Name="Usuario_Id" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="Afiliado_Usuario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_EspecialidadXProfesional">
+    <End Role="EspecialidadXProfesional" Type="Self.EspecialidadXProfesional" Multiplicity="1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EspecialidadXProfesional">
+        <PropertyRef Name="Usuario_Id" />
+        <PropertyRef Name="Especialidad_Id" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="Profesional_Usuario_Id" />
+        <PropertyRef Name="Especialidad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Login">
+    <End Role="LoginUsuario" Type="Self.LoginUsuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LoginUsuario">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClinicaNetDBModelStoreContainer">
+    <EntitySet Name="Afiliado" EntityType="Self.Afiliado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Atencion" EntityType="Self.Atencion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BonoConsulta" EntityType="Self.BonoConsulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BonoFarmacia" EntityType="Self.BonoFarmacia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CambioPlan" EntityType="Self.CambioPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cancelacion" EntityType="Self.Cancelacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Compra" EntityType="Self.Compra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Consulta" EntityType="Self.Consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EspecialidadXProfesional" EntityType="Self.EspecialidadXProfesional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funcionalidad" EntityType="Self.Funcionalidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FuncionalidadXRol" EntityType="Self.FuncionalidadXRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginUsuario" EntityType="Self.LoginUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicamentoXReceta" EntityType="Self.MedicamentoXReceta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanAfiliado" EntityType="Self.PlanAfiliado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesional" EntityType="Self.Profesional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receta" EntityType="Self.Receta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolXUsuario" EntityType="Self.RolXUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoCancelacion" EntityType="Self.TipoCancelacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEspecialidad" EntityType="Self.TipoEspecialidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Afiliado_Compra" Association="Self.FK_Afiliado_Compra">
+      <End Role="Afiliado" EntitySet="Afiliado" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Afiliado_Plan" Association="Self.FK_Afiliado_Plan">
+      <End Role="PlanAfiliado" EntitySet="PlanAfiliado" />
+      <End Role="Afiliado" EntitySet="Afiliado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Afiliado_Usuario" Association="Self.FK_Afiliado_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Afiliado" EntitySet="Afiliado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agenda_EspecialidadXProfesional" Association="Self.FK_Agenda_EspecialidadXProfesional">
+      <End Role="EspecialidadXProfesional" EntitySet="EspecialidadXProfesional" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Atencion_Consulta" Association="Self.FK_Atencion_Consulta">
+      <End Role="Consulta" EntitySet="Consulta" />
+      <End Role="Atencion" EntitySet="Atencion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bono Consulta_Compra" Association="Self.FK_Bono Consulta_Compra">
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="BonoConsulta" EntitySet="BonoConsulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bono Farmacia_Compra" Association="Self.FK_Bono Farmacia_Compra">
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="BonoFarmacia" EntitySet="BonoFarmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CambioPlan_Afiliado" Association="Self.FK_CambioPlan_Afiliado">
+      <End Role="Afiliado" EntitySet="Afiliado" />
+      <End Role="CambioPlan" EntitySet="CambioPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CambioPlan_Plan" Association="Self.FK_CambioPlan_Plan">
+      <End Role="PlanAfiliado" EntitySet="PlanAfiliado" />
+      <End Role="CambioPlan" EntitySet="CambioPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CambioPlan_Plan1" Association="Self.FK_CambioPlan_Plan1">
+      <End Role="PlanAfiliado" EntitySet="PlanAfiliado" />
+      <End Role="CambioPlan" EntitySet="CambioPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cancelacion_TipoCancelacion" Association="Self.FK_Cancelacion_TipoCancelacion">
+      <End Role="TipoCancelacion" EntitySet="TipoCancelacion" />
+      <End Role="Cancelacion" EntitySet="Cancelacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cancelacion_Turno" Association="Self.FK_Cancelacion_Turno">
+      <End Role="Turno" EntitySet="Turno" />
+      <End Role="Cancelacion" EntitySet="Cancelacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compra_Plan" Association="Self.FK_Compra_Plan">
+      <End Role="PlanAfiliado" EntitySet="PlanAfiliado" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consulta_Bono Consulta" Association="Self.FK_Consulta_Bono Consulta">
+      <End Role="BonoConsulta" EntitySet="BonoConsulta" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consulta_Turno" Association="Self.FK_Consulta_Turno">
+      <End Role="Turno" EntitySet="Turno" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dia_Agenda" Association="Self.FK_Dia_Agenda">
+      <End Role="Agenda" EntitySet="Agenda" />
+      <End Role="Dia" EntitySet="Dia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Especialidad_TipoEspecialidad" Association="Self.FK_Especialidad_TipoEspecialidad">
+      <End Role="TipoEspecialidad" EntitySet="TipoEspecialidad" />
+      <End Role="Especialidad" EntitySet="Especialidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EspecialidadXProfesional_Especialidad" Association="Self.FK_EspecialidadXProfesional_Especialidad">
+      <End Role="Especialidad" EntitySet="Especialidad" />
+      <End Role="EspecialidadXProfesional" EntitySet="EspecialidadXProfesional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EspecialidadXProfesional_Profesional" Association="Self.FK_EspecialidadXProfesional_Profesional">
+      <End Role="Profesional" EntitySet="Profesional" />
+      <End Role="EspecialidadXProfesional" EntitySet="EspecialidadXProfesional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionalidadXRol_Funcionalidad" Association="Self.FK_FuncionalidadXRol_Funcionalidad">
+      <End Role="Funcionalidad" EntitySet="Funcionalidad" />
+      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionalidadXRol_Rol" Association="Self.FK_FuncionalidadXRol_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="FuncionalidadXRol" EntitySet="FuncionalidadXRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedicamentoXReceta_Receta" Association="Self.FK_MedicamentoXReceta_Receta">
+      <End Role="Receta" EntitySet="Receta" />
+      <End Role="MedicamentoXReceta" EntitySet="MedicamentoXReceta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profesional_Usuario" Association="Self.FK_Profesional_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Profesional" EntitySet="Profesional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receta_Atencion" Association="Self.FK_Receta_Atencion">
+      <End Role="Atencion" EntitySet="Atencion" />
+      <End Role="Receta" EntitySet="Receta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receta_Bono Farmacia" Association="Self.FK_Receta_Bono Farmacia">
+      <End Role="BonoFarmacia" EntitySet="BonoFarmacia" />
+      <End Role="Receta" EntitySet="Receta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolXUsuario_Login" Association="Self.FK_RolXUsuario_Login">
+      <End Role="LoginUsuario" EntitySet="LoginUsuario" />
+      <End Role="RolXUsuario" EntitySet="RolXUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolXUsuario_Rol" Association="Self.FK_RolXUsuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="RolXUsuario" EntitySet="RolXUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_Afiliado" Association="Self.FK_Turno_Afiliado">
+      <End Role="Afiliado" EntitySet="Afiliado" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_EspecialidadXProfesional" Association="Self.FK_Turno_EspecialidadXProfesional">
+      <End Role="EspecialidadXProfesional" EntitySet="EspecialidadXProfesional" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Login" Association="Self.FK_Usuario_Login">
+      <End Role="LoginUsuario" EntitySet="LoginUsuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

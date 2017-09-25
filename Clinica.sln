@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinica", "Clinica\Clinica.csproj", "{BBA67750-0BF5-4077-87D7-025F561853C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{97075BE0-7F5E-4679-A7FD-ABA8C6695F71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA67750-0BF5-4077-87D7-025F561853C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA67750-0BF5-4077-87D7-025F561853C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA67750-0BF5-4077-87D7-025F561853C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA67750-0BF5-4077-87D7-025F561853C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97075BE0-7F5E-4679-A7FD-ABA8C6695F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97075BE0-7F5E-4679-A7FD-ABA8C6695F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97075BE0-7F5E-4679-A7FD-ABA8C6695F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97075BE0-7F5E-4679-A7FD-ABA8C6695F71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88D2391B-6A84-4437-A46F-DEEBA8890F94}
+	EndGlobalSection
+EndGlobal
