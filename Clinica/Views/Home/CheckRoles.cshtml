@@ -1,10 +1,36 @@
 ﻿@model Clinica.Models.CheckRolesViewModel
 
 @{
-    ViewBag.Title = "CheckRoles";
+    ViewBag.Title = "Check Roles";
 }
 
 <h2>CheckRoles</h2>
 
 
-@Html.DropDownList("Text", Model.RolesAsignados);
+@*@Html.DropDownList("Text", Model.RolesAsignados)
+
+    <td></td>
+        <form action="/Home/RedireccionarSegunRol" id="searchForm" method="post">
+   
+            <input type="submit" />
+        </form>
+    <td></td>*@
+
+<h2>login</h2>
+@using (Html.BeginForm("RedireccionarSegunRol", "Home", FormMethod.Post))
+{
+    //this is for create form tag
+    @Html.AntiForgeryToken() // this is for prevent CSRF attack
+    @Html.ValidationSummary(true)
+    @Html.DropDownList("Text", Model.RolesAsignados)
+
+    <input type="submit" value="Roles" />
+
+
+}
+
+
+
+
+
+
