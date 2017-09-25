@@ -90,8 +90,26 @@ namespace Clinica.Controllers
         [HttpPost]
         public ActionResult RedireccionarSegunRol(CheckRolesViewModel modelo)
         {
+            int id_rol = (int.Parse(modelo.RolSeleccionado));
 
-            return View();
+            if (id_rol == 1)
+            {
+                return View("AdministradorGeneral");
+            }
+            else if(id_rol == 2)
+            {
+                return View("Afiliado");
+            }
+            else if(id_rol == 3)
+            {
+                return View("Profesional");
+            }
+            else
+            {
+                return View("Administrativo");
+            }
+            
+            
            
         }
 
