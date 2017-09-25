@@ -21,8 +21,8 @@
 {
     //this is for create form tag
     @Html.AntiForgeryToken() // this is for prevent CSRF attack
-    @Html.ValidationSummary(true)
-    @Html.DropDownList("Text", Model.RolesAsignados)
+    @Html.ValidationSummary(true)    
+    @Html.DropDownListFor(model => model.RolSeleccionado, Model.RolesAsignados)
 
     <input type="submit" value="Roles" />
 
