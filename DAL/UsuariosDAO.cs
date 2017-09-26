@@ -15,13 +15,21 @@ namespace DAL
             context = new ClinicaNetDBEntities();
         }
 
-        public void CrearUsuario(LoginUsuario userLogin, Usuario user)
-        {            
+
+        public ICollection<Rol> recuperarRoles(List<int> listadoElegido)
+        {
+            var roles = context.Rols.Where(x => listadoElegido.Contains(x.Id_Rol)).ToList();
+            return roles;
+        }
+
+        public void CrearUsuario(ICollection<Rol> rol,LoginUsuario userLogin, Usuario user)
+        {
           
             LoginUsuario login = new LoginUsuario
             {
                 Username = userLogin.Username,
-                Password = userLogin.Password            
+                Password = userLogin.Password,  
+                Rols = rol
             };
 
             Usuario usuario = new Usuario

@@ -34,8 +34,8 @@ namespace Clinica.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            //var model = new CrearUsuarioViewModel(_usuariosDAO.listadoDeRoles());
-            return View(/*model*/);
+            var model = new CrearUsuarioViewModel(_usuariosDAO.listadoDeRoles());
+            return View(model);
         }
 
         // POST: Usuarios/Create
@@ -43,13 +43,14 @@ namespace Clinica.Controllers
         public ActionResult Create(CrearUsuarioViewModel model)
         {
             LoginUsuario login = new LoginUsuario();
-
+            var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
             try
             {
-                _usuariosDAO.CrearUsuario(new LoginUsuario()
+                _usuariosDAO.CrearUsuario(rol,new LoginUsuario()
                 {
                     Username = model.Usuario,
-                    Password = model.Password
+                    Password = model.Password,
+                    Rols = rol
                 }, new Usuario()
                 {
 
