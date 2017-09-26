@@ -51,19 +51,8 @@ namespace Clinica.Controllers
                     Username = model.Usuario,
                     Password = model.Password,
                     Rols = rol
-                }, new Usuario()
-                {
-
-                    Nombre = model.Nombre,
-                    Apellido = model.Apellido,
-                    Tipo_Documento = model.TipoDocumento,
-                    Numero_Documento = model.NumeroDocumento,
-                    Direccion = model.Direccion,
-                    Telefono = model.Telefono,
-                    Mail = model.Mail,
-                    Fecha_Nac = model.FechaNacimiento,
-                    Sexo = model.Sexo
                 });
+                
 
                 return RedirectToAction("Index");
             }
@@ -90,24 +79,24 @@ namespace Clinica.Controllers
                 var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
                 try
                 {
-                    _usuariosDAO.EditarUsuario(rol, new LoginUsuario()
-                    {
-                        Username = model.Usuario,
-                        Password = model.Password,
-                        Rols = rol
-                    }, new Usuario()
-                    {
+                    //_usuariosDAO.EditarUsuario(rol, new LoginUsuario()
+                    //{
+                    //    Username = model.Usuario,
+                    //    Password = model.Password,
+                    //    Rols = rol
+                    //}, new Usuario()
+                    //{
 
-                        Nombre = model.Nombre,
-                        Apellido = model.Apellido,
-                        Tipo_Documento = model.TipoDocumento,
-                        Numero_Documento = model.NumeroDocumento,
-                        Direccion = model.Direccion,
-                        Telefono = model.Telefono,
-                        Mail = model.Mail,
-                        Fecha_Nac = model.FechaNacimiento,
-                        Sexo = model.Sexo
-                    });
+                    //    Nombre = model.Nombre,
+                    //    Apellido = model.Apellido,
+                    //    Tipo_Documento = model.TipoDocumento,
+                    //    Numero_Documento = model.NumeroDocumento,
+                    //    Direccion = model.Direccion,
+                    //    Telefono = model.Telefono,
+                    //    Mail = model.Mail,
+                    //    Fecha_Nac = model.FechaNacimiento,
+                    //    Sexo = model.Sexo
+                    //});
 
 
                     return RedirectToAction("Index");

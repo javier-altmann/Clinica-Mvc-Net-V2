@@ -52,6 +52,7 @@
     <Compile Include="Afiliado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AfiliadoDAO.cs" />
     <Compile Include="Agendum.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

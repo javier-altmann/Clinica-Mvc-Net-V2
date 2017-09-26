@@ -22,7 +22,7 @@ namespace DAL
             return roles;
         }
 
-        public void CrearUsuario(ICollection<Rol> rol,LoginUsuario userLogin, Usuario user)
+        public void CrearUsuario(ICollection<Rol> rol,LoginUsuario userLogin /*Usuario user*/)
         {
           
             LoginUsuario login = new LoginUsuario
@@ -32,22 +32,24 @@ namespace DAL
                 Rols = rol
             };
 
-            Usuario usuario = new Usuario
-            {
-                Id_Usuario = login.Id_Usuario,
-                Nombre = user.Nombre,
-                Apellido = user.Apellido,
-                Tipo_Documento = user.Tipo_Documento,
-                Numero_Documento = user.Numero_Documento,
-                Direccion = user.Direccion,
-                Telefono = user.Telefono,
-                Mail = user.Mail,
-                Fecha_Nac = user.Fecha_Nac,
-                Sexo = user.Sexo,
-                LoginUsuario = login
-            };
+            //Usuario usuario = new Usuario
+            //{
+            //    Id_Usuario = login.Id_Usuario,
+            //    Nombre = user.Nombre,
+            //    Apellido = user.Apellido,
+            //    Tipo_Documento = user.Tipo_Documento,
+            //    Numero_Documento = user.Numero_Documento,
+            //    Direccion = user.Direccion,
+            //    Telefono = user.Telefono,
+            //    Mail = user.Mail,
+            //    Fecha_Nac = user.Fecha_Nac,
+            //    Sexo = user.Sexo,
+            //    LoginUsuario = login
+            //};
 
-            context.Usuarios.Add(usuario);
+            //  context.Usuario.Add(usuario);
+
+            context.LoginUsuarios.Add(login);
             context.SaveChanges();
             
         }
