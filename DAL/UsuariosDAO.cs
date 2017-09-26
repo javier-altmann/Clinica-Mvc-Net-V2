@@ -52,6 +52,37 @@ namespace DAL
             
         }
 
+        public void EditarUsuario(ICollection<Rol> rol, LoginUsuario userLogin, Usuario user) {
+            Usuario idUsuarioAEditar = context.Usuarios.Where(x => x.Id_Usuario == user.Id_Usuario).FirstOrDefault();
+
+            if(idUsuarioAEditar != null)
+            {
+                LoginUsuario login = new LoginUsuario
+                {
+                    Username = userLogin.Username,
+                    Password = userLogin.Password,
+                    Rols = rol
+                };
+
+
+
+                idUsuarioAEditar.Id_Usuario = login.Id_Usuario;
+                idUsuarioAEditar.Nombre = user.Nombre;
+                idUsuarioAEditar.Apellido = user.Apellido;
+                idUsuarioAEditar.Tipo_Documento = user.Tipo_Documento;
+                idUsuarioAEditar.Numero_Documento = user.Numero_Documento;
+                idUsuarioAEditar.Direccion = user.Direccion;
+                idUsuarioAEditar.Telefono = user.Telefono;
+                idUsuarioAEditar.Mail = user.Mail;
+                idUsuarioAEditar.Fecha_Nac = user.Fecha_Nac;
+                idUsuarioAEditar.Sexo = user.Sexo;
+                idUsuarioAEditar.LoginUsuario = login;
+              
+                context.SaveChanges();
+            }
+
+
+        }
         public IEnumerable<Rol> listadoDeRoles()
         {
 

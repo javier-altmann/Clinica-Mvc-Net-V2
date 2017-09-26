@@ -46,7 +46,7 @@ namespace Clinica.Controllers
             var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
             try
             {
-                _usuariosDAO.CrearUsuario(rol,new LoginUsuario()
+                _usuariosDAO.CrearUsuario(rol, new LoginUsuario()
                 {
                     Username = model.Usuario,
                     Password = model.Password,
@@ -67,9 +67,9 @@ namespace Clinica.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
                 return View();
             }
         }
@@ -77,25 +77,49 @@ namespace Clinica.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = new CrearUsuarioViewModel(_usuariosDAO.listadoDeRoles());
+            return View(model);
         }
 
         // POST: Usuarios/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CrearUsuarioViewModel model)
         {
-            try
-            {
-                // TODO: Add update logic here
+            
+                LoginUsuario login = new LoginUsuario();
+                var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
+                try
+                {
+                    _usuariosDAO.EditarUsuario(rol, new LoginUsuario()
+                    {
+                        Username = model.Usuario,
+                        Password = model.Password,
+                        Rols = rol
+                    }, new Usuario()
+                    {
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                        Nombre = model.Nombre,
+                        Apellido = model.Apellido,
+                        Tipo_Documento = model.TipoDocumento,
+                        Numero_Documento = model.NumeroDocumento,
+                        Direccion = model.Direccion,
+                        Telefono = model.Telefono,
+                        Mail = model.Mail,
+                        Fecha_Nac = model.FechaNacimiento,
+                        Sexo = model.Sexo
+                    });
 
+
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
+
+         }
+
+    
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int id)
         {
