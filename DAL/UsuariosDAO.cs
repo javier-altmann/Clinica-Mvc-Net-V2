@@ -15,14 +15,14 @@ namespace DAL
             context = new ClinicaNetDBEntities();
         }
 
-
+       
         public ICollection<Rol> recuperarRoles(List<int> listadoElegido)
         {
             var roles = context.Rols.Where(x => listadoElegido.Contains(x.Id_Rol)).ToList();
             return roles;
         }
 
-        public void CrearUsuario(ICollection<Rol> rol,LoginUsuario userLogin /*Usuario user*/)
+        public void CrearUsuario(ICollection<Rol> rol,LoginUsuario userLogin)
         {
           
             LoginUsuario login = new LoginUsuario
@@ -32,54 +32,20 @@ namespace DAL
                 Rols = rol
             };
 
-            //Usuario usuario = new Usuario
-            //{
-            //    Id_Usuario = login.Id_Usuario,
-            //    Nombre = user.Nombre,
-            //    Apellido = user.Apellido,
-            //    Tipo_Documento = user.Tipo_Documento,
-            //    Numero_Documento = user.Numero_Documento,
-            //    Direccion = user.Direccion,
-            //    Telefono = user.Telefono,
-            //    Mail = user.Mail,
-            //    Fecha_Nac = user.Fecha_Nac,
-            //    Sexo = user.Sexo,
-            //    LoginUsuario = login
-            //};
-
-            //  context.Usuario.Add(usuario);
-
             context.LoginUsuarios.Add(login);
             context.SaveChanges();
             
         }
 
-        public void EditarUsuario(ICollection<Rol> rol, LoginUsuario userLogin, Usuario user) {
-            Usuario idUsuarioAEditar = context.Usuarios.Where(x => x.Id_Usuario == user.Id_Usuario).FirstOrDefault();
+        public void EditarUsuario(ICollection<Rol> rol, LoginUsuario userLogin) {
+            LoginUsuario idUsuarioAEditar = context.LoginUsuarios.Where(x => x.Id_Usuario == userLogin.Id_Usuario).FirstOrDefault();
 
             if(idUsuarioAEditar != null)
             {
-                LoginUsuario login = new LoginUsuario
-                {
-                    Username = userLogin.Username,
-                    Password = userLogin.Password,
-                    Rols = rol
-                };
 
+                idUsuarioAEditar.Username = userLogin.Username;
+                idUsuarioAEditar.Password = userLogin.Password;
 
-
-                idUsuarioAEditar.Id_Usuario = login.Id_Usuario;
-                idUsuarioAEditar.Nombre = user.Nombre;
-                idUsuarioAEditar.Apellido = user.Apellido;
-                idUsuarioAEditar.Tipo_Documento = user.Tipo_Documento;
-                idUsuarioAEditar.Numero_Documento = user.Numero_Documento;
-                idUsuarioAEditar.Direccion = user.Direccion;
-                idUsuarioAEditar.Telefono = user.Telefono;
-                idUsuarioAEditar.Mail = user.Mail;
-                idUsuarioAEditar.Fecha_Nac = user.Fecha_Nac;
-                idUsuarioAEditar.Sexo = user.Sexo;
-                idUsuarioAEditar.LoginUsuario = login;
-              
                 context.SaveChanges();
             }
 

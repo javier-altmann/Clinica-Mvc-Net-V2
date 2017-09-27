@@ -67,6 +67,8 @@ namespace Clinica.Controllers
         public ActionResult Edit(int id)
         {
             var model = new CrearUsuarioViewModel(_usuariosDAO.listadoDeRoles());
+
+
             return View(model);
         }
 
