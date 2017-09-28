@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.suo
+.vs/Clinica/v15/.suo
+*.ide
+Clinica/bin/Clinica.dll
+*.pdb
+Clinica/bin/DAL.dll
+Clinica/bin/DAL.pdb

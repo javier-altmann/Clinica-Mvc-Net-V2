@@ -21,9 +21,27 @@ namespace Clinica.Controllers
         // GET: Profesional
         public ActionResult Index()
         {
+            //var listadoDeProfesionales = _profesionalDAO.ListadoDeProfesionales();
             var listadoDeProfesionales = _profesionalDAO.ListadoDeProfesionales();
-          
-            return View(listadoDeProfesionales);
+            var resultado  = new List<ListarProfesionalesViewModel>();
+
+            foreach (var item in listadoDeProfesionales)
+            {
+                resultado.Add(new ListarProfesionalesViewModel()
+                {
+                    Id_usuario = item.Id_Usuario,
+                    Nombre = item.Nombre,
+                    Apellido = item.Apellido,
+                    Direccion = item.Direccion,
+                    Mail = item.Direccion,
+                    NumeroDocumento = item.Numero_Documento,
+                    TipoDocumento = item.Tipo_Documento,
+                    Sexo = item.Sexo,
+                    Telefono = (decimal)item.Telefono,
+                    Matricula = item.Profesional.Matricula
+                });
+            }
+            return View(resultado);
         }
 
         // GET: Profesional/Details/5
