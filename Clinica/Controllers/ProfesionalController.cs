@@ -11,12 +11,12 @@ namespace Clinica.Controllers
     public class ProfesionalController : Controller
     {
         public ProfesionalDAO _profesionalDAO;
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
 
         public ProfesionalController()
         {
             _profesionalDAO = new ProfesionalDAO();
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
         // GET: Profesional
         public ActionResult Index()
@@ -37,7 +37,7 @@ namespace Clinica.Controllers
                     NumeroDocumento = item.Numero_Documento,
                     TipoDocumento = item.Tipo_Documento,
                     Sexo = item.Sexo,
-                    Telefono = (decimal)item.Telefono,
+                    Telefono = (int)item.Telefono,
                     Matricula = item.Profesional.Matricula
                 });
             }

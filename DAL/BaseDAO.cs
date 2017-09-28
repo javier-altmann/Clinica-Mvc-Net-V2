@@ -15,7 +15,7 @@ namespace DAL
 
         public BaseDAO()
         {
-            _context = new ClinicaNetDBEntities(); //base de datos en memoria
+            _context = new ClinicaNetDBEntities1(); //base de datos en memoria
         }
 
         public BaseDAO(DbContext context)

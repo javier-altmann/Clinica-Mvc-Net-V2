@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rol()
         {
-            this.Funcionalidads = new HashSet<Funcionalidad>();
-            this.LoginUsuarios = new HashSet<LoginUsuario>();
+            this.Funcionalidad = new HashSet<Funcionalidad>();
+            this.LoginUsuario = new HashSet<LoginUsuario>();
         }
     
         public int Id_Rol { get; set; }
@@ -26,8 +26,8 @@ namespace DAL
         public bool Eliminado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Funcionalidad> Funcionalidads { get; set; }
+        public virtual ICollection<Funcionalidad> Funcionalidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginUsuario> LoginUsuarios { get; set; }
+        public virtual ICollection<LoginUsuario> LoginUsuario { get; set; }
     }
 }

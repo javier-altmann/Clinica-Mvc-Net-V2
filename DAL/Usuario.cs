@@ -18,9 +18,9 @@ namespace DAL
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Tipo_Documento { get; set; }
-        public decimal Numero_Documento { get; set; }
+        public int Numero_Documento { get; set; }
         public string Direccion { get; set; }
-        public Nullable<decimal> Telefono { get; set; }
+        public Nullable<int> Telefono { get; set; }
         public string Mail { get; set; }
         public Nullable<System.DateTime> Fecha_Nac { get; set; }
         public string Sexo { get; set; }

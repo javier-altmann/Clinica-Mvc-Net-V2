@@ -11,12 +11,12 @@ namespace Clinica.Controllers
     public class UsuariosController : Controller
     {
         public UsuariosDAO _usuariosDAO;
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
 
         public UsuariosController()
         {
             _usuariosDAO = new UsuariosDAO();
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
 
         // GET: Usuarios
@@ -46,11 +46,12 @@ namespace Clinica.Controllers
             var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
             try
             {
+              
                 _usuariosDAO.CrearUsuario(rol, new LoginUsuario()
                 {
                     Username = model.Usuario,
                     Password = model.Password,
-                    Rols = rol
+                    Rol = rol
                 });
                 
 

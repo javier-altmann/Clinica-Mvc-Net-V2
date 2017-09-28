@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EspecialidadXProfesional()
         {
-            this.Agenda = new HashSet<Agendum>();
-            this.Turnoes = new HashSet<Turno>();
+            this.Agenda = new HashSet<Agenda>();
+            this.Turno = new HashSet<Turno>();
         }
     
         public int Usuario_Id { get; set; }
@@ -27,10 +27,10 @@ namespace DAL
         public string Motivo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Agendum> Agenda { get; set; }
+        public virtual ICollection<Agenda> Agenda { get; set; }
         public virtual Especialidad Especialidad { get; set; }
         public virtual Profesional Profesional { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turno> Turnoes { get; set; }
+        public virtual ICollection<Turno> Turno { get; set; }
     }
 }

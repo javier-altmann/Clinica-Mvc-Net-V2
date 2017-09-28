@@ -20,6 +20,6 @@ namespace DAL
         public System.TimeSpan Horario_Fin { get; set; }
         public int Agenda_Id { get; set; }
     
-        public virtual Agendum Agendum { get; set; }
+        public virtual Agenda Agenda { get; set; }
     }
 }

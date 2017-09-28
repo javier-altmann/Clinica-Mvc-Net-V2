@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Consulta()
         {
-            this.Atencions = new HashSet<Atencion>();
+            this.Atencion = new HashSet<Atencion>();
         }
     
         public int Id_Consulta { get; set; }
@@ -26,7 +26,7 @@ namespace DAL
         public decimal Bono_Consulta_Numero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Atencion> Atencions { get; set; }
+        public virtual ICollection<Atencion> Atencion { get; set; }
         public virtual BonoConsulta BonoConsulta { get; set; }
         public virtual Turno Turno { get; set; }
     }

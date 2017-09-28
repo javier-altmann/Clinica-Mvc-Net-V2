@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoginUsuario()
         {
-            this.Rols = new HashSet<Rol>();
+            this.Rol = new HashSet<Rol>();
         }
     
         public int Id_Usuario { get; set; }
@@ -28,6 +28,6 @@ namespace DAL
     
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rol> Rols { get; set; }
+        public virtual ICollection<Rol> Rol { get; set; }
     }
 }

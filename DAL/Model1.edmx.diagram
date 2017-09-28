@@ -4,58 +4,58 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="21b414dc505f487a974bbcd7357323a0" Name="Diagram1">
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Afiliado" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Agendum" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Atencion" Width="1.5" PointX="15" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.BonoConsulta" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.BonoFarmacia" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.CambioPlan" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Cancelacion" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Compra" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Consulta" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Dia" Width="1.5" PointX="7.5" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Especialidad" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.EspecialidadXProfesional" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Funcionalidad" Width="1.5" PointX="1.5" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.LoginUsuario" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.MedicamentoXReceta" Width="1.5" PointX="19.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.PlanAfiliado" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Profesional" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Receta" Width="1.5" PointX="17.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Rol" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.TipoCancelacion" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.TipoEspecialidad" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Turno" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClinicaNetDBModel.Usuario" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Afiliado_Compra" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Afiliado_Plan" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Afiliado_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_CambioPlan_Afiliado" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Turno_Afiliado" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Agenda_EspecialidadXProfesional" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Dia_Agenda" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Atencion_Consulta" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Receta_Atencion" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Bono_Consulta_Compra" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Consulta_Bono_Consulta" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Bono_Farmacia_Compra" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Receta_Bono_Farmacia" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_CambioPlan_Plan" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_CambioPlan_Plan1" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Cancelacion_TipoCancelacion" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Cancelacion_Turno" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Compra_Plan" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Consulta_Turno" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Especialidad_TipoEspecialidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_EspecialidadXProfesional_Especialidad" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_EspecialidadXProfesional_Profesional" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Turno_EspecialidadXProfesional" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Usuario_Login" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_MedicamentoXReceta_Receta" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FK_Profesional_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.FuncionalidadXRol" ManuallyRouted="false" />
-        <AssociationConnector Association="ClinicaNetDBModel.RolXUsuario" ManuallyRouted="false" />
+      <Diagram DiagramId="eeb9c405fff249c3b89011ef87474796" Name="Diagram1">
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Afiliado" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Agenda" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Atencion" Width="1.5" PointX="15" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.BonoConsulta" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.BonoFarmacia" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.CambioPlan" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Cancelacion" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Compra" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Consulta" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Dia" Width="1.5" PointX="7.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Especialidad" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.EspecialidadXProfesional" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Funcionalidad" Width="1.5" PointX="1.5" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.LoginUsuario" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.MedicamentoXReceta" Width="1.5" PointX="19.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.PlanAfiliado" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Profesional" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Receta" Width="1.5" PointX="17.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Rol" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.TipoCancelacion" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.TipoEspecialidad" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Turno" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClinicaNetDBModel1.Usuario" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Afiliado_Compra" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Afiliado_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Afiliado_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_CambioPlan_Afiliado" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Turno_Afiliado" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Agenda_EspecialidadXProfesional" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Dia_Agenda" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Atencion_Consulta" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Receta_Atencion" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Bono_Consulta_Compra" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Consulta_Bono_Consulta" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Bono_Farmacia_Compra" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Receta_Bono_Farmacia" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_CambioPlan_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_CambioPlan_Plan1" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Cancelacion_TipoCancelacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Cancelacion_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Compra_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Consulta_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Especialidad_TipoEspecialidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_EspecialidadXProfesional_Especialidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_EspecialidadXProfesional_Profesional" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Turno_EspecialidadXProfesional" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Usuario_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_MedicamentoXReceta_Receta" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FK_Profesional_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.FuncionalidadXRol" ManuallyRouted="false" />
+        <AssociationConnector Association="ClinicaNetDBModel1.RolXUsuario" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

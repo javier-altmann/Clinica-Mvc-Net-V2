@@ -17,9 +17,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Afiliado()
         {
-            this.Compras = new HashSet<Compra>();
-            this.CambioPlans = new HashSet<CambioPlan>();
-            this.Turnoes = new HashSet<Turno>();
+            this.Compra = new HashSet<Compra>();
+            this.CambioPlan = new HashSet<CambioPlan>();
+            this.Turno = new HashSet<Turno>();
         }
     
         public int Usuario_Id { get; set; }
@@ -32,12 +32,12 @@ namespace DAL
         public Nullable<System.DateTime> Fecha_Baja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compra> Compras { get; set; }
+        public virtual ICollection<Compra> Compra { get; set; }
         public virtual PlanAfiliado PlanAfiliado { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CambioPlan> CambioPlans { get; set; }
+        public virtual ICollection<CambioPlan> CambioPlan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turno> Turnoes { get; set; }
+        public virtual ICollection<Turno> Turno { get; set; }
     }
 }

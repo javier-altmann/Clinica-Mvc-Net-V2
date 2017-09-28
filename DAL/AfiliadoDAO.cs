@@ -8,11 +8,11 @@ namespace DAL
 {
     public class AfiliadoDAO
     {
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
 
         public AfiliadoDAO()
         {
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
 
         public void crearAfiliado(Afiliado affiliate, Usuario user)
@@ -39,7 +39,7 @@ namespace DAL
                 Afiliado = afiliado
             };
 
-            context.Usuarios.Add(usuario);
+            context.Usuario.Add(usuario);
 
         }
 
@@ -47,7 +47,7 @@ namespace DAL
         public IEnumerable<PlanAfiliado> listadoDePlanes()
         {
 
-            var planes = context.PlanAfiliadoes.ToList();
+            var planes = context.PlanAfiliado.ToList();
 
             return planes;
         }

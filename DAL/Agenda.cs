@@ -12,12 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Agendum
+    public partial class Agenda
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Agendum()
+        public Agenda()
         {
-            this.Dias = new HashSet<Dia>();
+            this.Dia = new HashSet<Dia>();
         }
     
         public int Id_Agenda { get; set; }
@@ -28,6 +28,6 @@ namespace DAL
     
         public virtual EspecialidadXProfesional EspecialidadXProfesional { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dia> Dias { get; set; }
+        public virtual ICollection<Dia> Dia { get; set; }
     }
 }

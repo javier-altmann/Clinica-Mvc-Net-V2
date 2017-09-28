@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profesional()
         {
-            this.EspecialidadXProfesionals = new HashSet<EspecialidadXProfesional>();
+            this.EspecialidadXProfesional = new HashSet<EspecialidadXProfesional>();
         }
     
         public int Usuario_Id { get; set; }
@@ -25,7 +25,7 @@ namespace DAL
         public bool Eliminado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EspecialidadXProfesional> EspecialidadXProfesionals { get; set; }
+        public virtual ICollection<EspecialidadXProfesional> EspecialidadXProfesional { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

@@ -8,11 +8,11 @@ namespace DAL
 {
     public class ProfesionalDAO
     {
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
 
         public ProfesionalDAO()
         {
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
 
         //public IEnumerable<Object> ListadoDeProfesionales()
@@ -39,7 +39,7 @@ namespace DAL
         public IEnumerable<Usuario> ListadoDeProfesionales()
         {
             
-            var query = context.Usuarios.Where(usuario => context.Profesionals.Any(prof => prof.Usuario_Id == usuario.Id_Usuario))
+            var query = context.Usuario.Where(usuario => context.Profesional.Any(prof => prof.Usuario_Id == usuario.Id_Usuario))
                 .ToList();
                             
             return query;

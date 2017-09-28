@@ -21,7 +21,7 @@ namespace DAL
                 var query = _context.Set<LoginUsuario>()
                 .Single(x => x.Username == username);
 
-                var roles = query.Rols;
+                var roles = query.Rol;
 
                 return roles;
 

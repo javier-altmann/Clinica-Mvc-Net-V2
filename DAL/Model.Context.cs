@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ClinicaNetDBEntities : DbContext
+    public partial class ClinicaNetDBEntities1 : DbContext
     {
-        public ClinicaNetDBEntities()
-            : base("name=ClinicaNetDBEntities")
+        public ClinicaNetDBEntities1()
+            : base("name=ClinicaNetDBEntities1")
         {
         }
     

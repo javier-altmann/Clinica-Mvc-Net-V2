@@ -16,11 +16,11 @@ namespace Clinica.Models
         public string TipoDocumento { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
-        public decimal NumeroDocumento { get; set; }
+        public int NumeroDocumento { get; set; }
         public string Direccion { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
-        public decimal Telefono { get; set; }
+        public int Telefono { get; set; }
         public string Mail { get; set; }
 
         [DataType(DataType.Date)]

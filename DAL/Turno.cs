@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Turno()
         {
-            this.Cancelacions = new HashSet<Cancelacion>();
-            this.Consultas = new HashSet<Consulta>();
+            this.Cancelacion = new HashSet<Cancelacion>();
+            this.Consulta = new HashSet<Consulta>();
         }
     
         public decimal Id_Turno { get; set; }
@@ -31,9 +31,9 @@ namespace DAL
     
         public virtual Afiliado Afiliado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cancelacion> Cancelacions { get; set; }
+        public virtual ICollection<Cancelacion> Cancelacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Consulta> Consultas { get; set; }
+        public virtual ICollection<Consulta> Consulta { get; set; }
         public virtual EspecialidadXProfesional EspecialidadXProfesional { get; set; }
     }
 }

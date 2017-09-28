@@ -8,17 +8,18 @@ namespace DAL
 {
     public class UsuariosDAO 
     {
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
+     
 
         public UsuariosDAO()
         {
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
 
        
         public ICollection<Rol> recuperarRoles(List<int> listadoElegido)
         {
-            var roles = context.Rols.Where(x => listadoElegido.Contains(x.Id_Rol)).ToList();
+            var roles = context.Rol.Where(x => listadoElegido.Contains(x.Id_Rol)).ToList();
             return roles;
         }
 
@@ -29,16 +30,16 @@ namespace DAL
             {
                 Username = userLogin.Username,
                 Password = userLogin.Password,  
-                Rols = rol
+                Rol = rol
             };
 
-            context.LoginUsuarios.Add(login);
+            context.LoginUsuario.Add(login);
             context.SaveChanges();
             
         }
 
         public void EditarUsuario(ICollection<Rol> rol, LoginUsuario userLogin) {
-            LoginUsuario idUsuarioAEditar = context.LoginUsuarios.Where(x => x.Id_Usuario == userLogin.Id_Usuario).FirstOrDefault();
+            LoginUsuario idUsuarioAEditar = context.LoginUsuario.Where(x => x.Id_Usuario == userLogin.Id_Usuario).FirstOrDefault();
 
             if(idUsuarioAEditar != null)
             {
@@ -54,7 +55,7 @@ namespace DAL
         public IEnumerable<Rol> listadoDeRoles()
         {
 
-            var roles = context.Rols.ToList();
+            var roles = context.Rol.ToList();
 
             return roles;
         }

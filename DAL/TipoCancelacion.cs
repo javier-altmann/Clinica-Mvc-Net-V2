@@ -17,13 +17,13 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipoCancelacion()
         {
-            this.Cancelacions = new HashSet<Cancelacion>();
+            this.Cancelacion = new HashSet<Cancelacion>();
         }
     
         public int Id_Tipo_Cancelacion { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cancelacion> Cancelacions { get; set; }
+        public virtual ICollection<Cancelacion> Cancelacion { get; set; }
     }
 }

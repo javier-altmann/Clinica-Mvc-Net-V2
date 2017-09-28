@@ -12,12 +12,12 @@ namespace Clinica.Controllers
     {
 
         public AfiliadoDAO _afiliadosDAO;
-        private ClinicaNetDBEntities context;
+        private ClinicaNetDBEntities1 context;
 
         public AfiliadoController()
         {
             _afiliadosDAO = new AfiliadoDAO();
-            context = new ClinicaNetDBEntities();
+            context = new ClinicaNetDBEntities1();
         }
 
 

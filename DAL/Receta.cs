@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Receta()
         {
-            this.MedicamentoXRecetas = new HashSet<MedicamentoXReceta>();
+            this.MedicamentoXReceta = new HashSet<MedicamentoXReceta>();
         }
     
         public int Atencion_Id { get; set; }
@@ -27,6 +27,6 @@ namespace DAL
         public virtual Atencion Atencion { get; set; }
         public virtual BonoFarmacia BonoFarmacia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MedicamentoXReceta> MedicamentoXRecetas { get; set; }
+        public virtual ICollection<MedicamentoXReceta> MedicamentoXReceta { get; set; }
     }
 }

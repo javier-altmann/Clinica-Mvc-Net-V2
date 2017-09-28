@@ -17,8 +17,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Compra()
         {
-            this.BonoConsultas = new HashSet<BonoConsulta>();
-            this.BonoFarmacias = new HashSet<BonoFarmacia>();
+            this.BonoConsulta = new HashSet<BonoConsulta>();
+            this.BonoFarmacia = new HashSet<BonoFarmacia>();
         }
     
         public decimal Id_Compra { get; set; }
@@ -30,9 +30,9 @@ namespace DAL
     
         public virtual Afiliado Afiliado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BonoConsulta> BonoConsultas { get; set; }
+        public virtual ICollection<BonoConsulta> BonoConsulta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BonoFarmacia> BonoFarmacias { get; set; }
+        public virtual ICollection<BonoFarmacia> BonoFarmacia { get; set; }
         public virtual PlanAfiliado PlanAfiliado { get; set; }
     }
 }
