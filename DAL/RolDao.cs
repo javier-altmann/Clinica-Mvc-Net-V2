@@ -22,7 +22,7 @@ namespace DAL
                 .Single(x => x.Username == username);
 
                 var roles = query.Rol;
-
+               
                 return roles;
 
             }

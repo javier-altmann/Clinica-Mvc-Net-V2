@@ -39,6 +39,10 @@ namespace Clinica.Controllers
         {
             var model = new CrearAfiliadoViewModel(_afiliadosDAO.listadoDePlanes());
             return View(model);
+
+           
+
+            return View();
         }
 
         // POST: Afiliado/Create
@@ -81,6 +85,8 @@ namespace Clinica.Controllers
         // GET: Afiliado/Edit/5
         public ActionResult Edit(int id)
         {
+
+       
             return View();
         }
 

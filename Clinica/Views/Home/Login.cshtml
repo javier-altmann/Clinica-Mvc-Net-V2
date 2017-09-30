@@ -21,7 +21,29 @@
     }
 
 
-    <form class="form-horizontal" role="form">
+    <div class="row">
+        <div class="col-md-10">
+            <label for="user" class="control-label ">Usuario</label>
+            @Html.TextBoxFor(a => a.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Username)
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-10">
+            <label for="password" class="control-label">Contraseña</label>
+            @Html.PasswordFor(a => a.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Password)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default">Entrar</button>
+        </div>
+    </div>
+
+    @*<form class="form-horizontal" role="form">
         <div class="form-group">
             <label for="user" class="col-lg-2 control-label ">Usuario</label>
             <div class="col-lg-10">
@@ -42,7 +64,8 @@
                 <button type="submit" class="btn btn-default">Entrar</button>
             </div>
         </div>
-    </form>
+    </form>*@
+   
 
 
 

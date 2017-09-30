@@ -22,7 +22,25 @@ namespace Clinica.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View();
+            var model = _usuariosDAO.ListadoUsuarioxRoles();
+
+            var listado = new List<ListarUsuariosxRolesViewModel>();
+
+            foreach (var item in model)
+            {
+
+                listado.Add(new ListarUsuariosxRolesViewModel()
+                {
+                    Id_usuario = item.Id_Usuario,
+                    
+                    Descripcion = item.Rol.Select(prueba => prueba.Descripcion),
+                    Username = item.Username
+                    
+
+                });
+               
+            }
+            return View(listado);
         }
 
         // GET: Usuarios/Details/5

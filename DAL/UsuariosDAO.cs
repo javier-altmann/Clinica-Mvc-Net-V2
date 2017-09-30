@@ -35,6 +35,8 @@ namespace DAL
 
             context.LoginUsuario.Add(login);
             context.SaveChanges();
+
+            
             
         }
 
@@ -58,6 +60,15 @@ namespace DAL
             var roles = context.Rol.ToList();
 
             return roles;
+        }
+
+        public List<LoginUsuario> ListadoUsuarioxRoles()
+        {
+
+            var query = context.LoginUsuario.ToList();
+            
+
+            return query;
         }
 
 
