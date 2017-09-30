@@ -414,3 +414,7 @@ C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\obj\Debug\Clinica.csp
 C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\obj\Debug\Clinica.csproj.CoreCompileInputs.cache
 C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\obj\Debug\Clinica.dll
 C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\obj\Debug\Clinica.pdb
+C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\bin\PagedList.dll
+C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\bin\PagedList.Mvc.dll
+C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\bin\PagedList.xml
+C:\Users\javier.altmann\Desktop\Clinica-Mvc-Net-V2\Clinica\bin\PagedList.Mvc.xml

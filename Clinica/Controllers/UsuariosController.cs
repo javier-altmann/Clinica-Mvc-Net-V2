@@ -1,8 +1,10 @@
 ﻿using Clinica.Models;
 using DAL;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,8 +22,16 @@ namespace Clinica.Controllers
         }
 
         // GET: Usuarios
-        public ActionResult Index()
+        public async Task<ActionResult> Index(int? pagina)
         {
+            int tamañoDePagina = 10;
+            int numeroPagina = pagina ?? 1;
+
+            var listado = await Task.Run(() => MapearViewModelListadoDeUsuarios());
+            return View(listado.OrderBy(p => p.Id_usuario).ToPagedList(numeroPagina, tamañoDePagina));
+        }
+     
+        public  List<ListarUsuariosxRolesViewModel> MapearViewModelListadoDeUsuarios() {
             var model = _usuariosDAO.ListadoUsuarioxRoles();
 
             var listado = new List<ListarUsuariosxRolesViewModel>();
@@ -32,16 +42,15 @@ namespace Clinica.Controllers
                 listado.Add(new ListarUsuariosxRolesViewModel()
                 {
                     Id_usuario = item.Id_Usuario,
-                    
                     Descripcion = item.Rol.Select(prueba => prueba.Descripcion),
                     Username = item.Username
-                    
+
 
                 });
-               
+
             }
-            return View(listado);
-        }
+            return listado;
+        } 
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int id)
