@@ -164,6 +164,8 @@
     <Compile Include="Models\CheckRolesViewModel.cs" />
     <Compile Include="Models\CrearAfiliadoViewModel.cs" />
     <Compile Include="Models\CrearUsuarioViewModel.cs" />
+    <Compile Include="Models\EditarUsuarioViewModel.cs" />
+    <Compile Include="Models\EliminarUsuarioViewModel.cs" />
     <Compile Include="Models\ListarProfesionalesViewModel.cs" />
     <Compile Include="Models\ListarUsuariosxRolesViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -212,10 +214,11 @@
     <Content Include="Views\Home\ListaLogin.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CheckRoles.cshtml" />
-    <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Afiliado\Create.cshtml" />
     <Content Include="Views\Profesional\Index.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

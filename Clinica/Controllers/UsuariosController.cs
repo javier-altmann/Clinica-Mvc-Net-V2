@@ -94,42 +94,60 @@ namespace Clinica.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = new CrearUsuarioViewModel(_usuariosDAO.listadoDeRoles());
+            
+            var model = _usuariosDAO.ListadoRolesXUsuarios(id);
+            
+            var listaDeRolesParaMultiSelect = new EditarUsuarioViewModel();
+            var listadoDeRoles = new List<SelectListItem>();
+
+            //MI LISTA DE ROLES CORRESPONDIENTES AL USUARIO 
+            IEnumerable<Rol> roles = _usuariosDAO.ListadoRolesXUsuarios(id).First().Rol;
+
+            //MI LISTA COMPLETA DE ROLES
+           IEnumerable<Rol> rolesUsuario = _usuariosDAO.listadoDeRoles();
+
+            foreach (var rol in rolesUsuario)
+            {
+                var selected = roles.Any(ru => ru.Id_Rol == rol.Id_Rol);
+                //var selected = _rolesID.Any(ru => ru.Id_Rol == rol.Id_Rol);
 
 
-            return View(model);
+                listadoDeRoles.Add(new SelectListItem
+                {
+                    Selected = selected,
+                    Text = rol.Descripcion,
+                    Value = rol.ToString()
+                        
+            });
+
+            }
+
+            listaDeRolesParaMultiSelect.Roles = listadoDeRoles;
+
+
+
+            return View(listaDeRolesParaMultiSelect);
         }
 
         // POST: Usuarios/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, CrearUsuarioViewModel model)
+        public ActionResult Edit(int id, EditarUsuarioViewModel model)
         {
             
-                LoginUsuario login = new LoginUsuario();
+                
                 var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
                 try
                 {
-                    //_usuariosDAO.EditarUsuario(rol, new LoginUsuario()
-                    //{
-                    //    Username = model.Usuario,
-                    //    Password = model.Password,
-                    //    Rols = rol
-                    //}, new Usuario()
-                    //{
-
-                    //    Nombre = model.Nombre,
-                    //    Apellido = model.Apellido,
-                    //    Tipo_Documento = model.TipoDocumento,
-                    //    Numero_Documento = model.NumeroDocumento,
-                    //    Direccion = model.Direccion,
-                    //    Telefono = model.Telefono,
-                    //    Mail = model.Mail,
-                    //    Fecha_Nac = model.FechaNacimiento,
-                    //    Sexo = model.Sexo
-                    //});
+                _usuariosDAO.EditarUsuario(rol, new LoginUsuario()
+                {
+                    Id_Usuario = id,
+                    Username = model.Usuario,
+                    Password = model.Password,
+                    Rol = rol
+                });
 
 
-                    return RedirectToAction("Index");
+                return RedirectToAction("Index");
                 }
                 catch
                 {
@@ -142,18 +160,28 @@ namespace Clinica.Controllers
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var model = new EliminarUsuarioViewModel(_usuariosDAO.listadoDeRolesPorUsuario(id));
+
+            return View(model);
         }
 
         // POST: Usuarios/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, EliminarUsuarioViewModel model)
         {
+            //var rol = _usuariosDAO.recuperarRoles(model.RolSeleccionado);
+
             try
             {
-                // TODO: Add delete logic here
+                //_usuariosDAO.EliminarUsuario(id, rol, new LoginUsuario()
+                //{
+                //    Id_Usuario = id,
+                //    Username = model.Usuario,
+                //    Password = model.Password,
+                //    Rol = rol
+                //});
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
             }
             catch
             {
